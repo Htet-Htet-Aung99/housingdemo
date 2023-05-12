@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html th:replace="~{layouts/masterLayout :: layout(~{::main})}"  xmlns:th="http://www.thymeleaf.org">
+<!-- (String ownerUserName, String ownerName, String ownerEmail, String password, LocalDate createdDate, LocalDate updatedDate) -->
+<body>
+<main role="main">
+  <div class="container my-5">
+    <form action="#" th:action="@{/house-owner-form}" method="post" th:object="${houseOwner}">
+      <div class="mb-3">
+        <label for="ownerUserName">OwnerUserName</label>
+        <input type="text" id="ownerUserName" class="form-control"
+               th:classappend="${#fields.hasErrors('ownerUserName')} ? 'is-invalid'"
+               th:field="*{ownerUserName}">
+        <small th:if="${#fields.hasErrors('ownerUserName')}" class="invalid-feedback" th:errors="*{ownerUserName}"></small>
+      </div>
+
+      <div class="mb-3">
+        <label for="ownerName">OwnerName</label>
+        <input type="text" id="ownerName" class="form-control"
+               th:classappend="${#fields.hasErrors('ownerName')} ? 'is-invalid'"
+               th:field="*{ownerName}">
+        <small th:if="${#fields.hasErrors('ownerName')}" class="invalid-feedback" th:errors="*{ownerName}"></small>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="ownerEmail">OwnerEmail</label>
+        <input type="text" id="ownerEmail" class="form-control"
+               th:classappend="${#fields.hasErrors('ownerEmail')} ? 'is-invalid'"
+               th:field="*{ownerEmail}">
+        <small th:if="${#fields.hasErrors('ownerEmail')}" class="invalid-feedback" th:errors="*{ownerEmail}"></small>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="password">Password</label>
+        <input type="text" id="password" class="form-control"
+               th:classappend="${#fields.hasErrors('password')} ? 'is-invalid'"
+               th:field="*{password}">
+        <small th:if="${#fields.hasErrors('password')}" class="invalid-feedback" th:errors="*{password}"></small>
+      </div>
+
+      <div class="mb-3">
+        <label for="createdDate">CreatedDate</label>
+        <input type="date" id="createdDate" class="form-control"
+               th:classappend="${#fields.hasErrors('createdDate')} ? 'is-invalid'"
+               th:field="*{createdDate}">
+        <small th:if="${#fields.hasErrors('createdDate')}" class="invalid-feedback" th:errors="*{createdDate}"></small>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="updatedDate">UpdatedDate</label>
+        <input type="date" id="updatedDate" class="form-control"
+               th:classappend="${#fields.hasErrors('updatedDate')} ? 'is-invalid'"
+               th:field="*{updatedDate}">
+        <small th:if="${#fields.hasErrors('updatedDate')}" class="invalid-feedback" th:errors="*{updatedDate}"></small>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Save HouseOwner</button>
+
+    </form>
+  </div>
+</main>
+</body>
+</html>
